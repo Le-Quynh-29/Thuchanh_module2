@@ -49,13 +49,12 @@ class ProductController
 
     public function editProduct()
     {
-        if (  !empty($_POST['name'])
-            && !empty($_POST['type'])
-            && !empty($_POST['price'])
-            && !empty($_POST['quantity'])
-            && !empty($_POST['date'])
-            && !empty($_POST['description']))
-        {
+        if($_SERVER['REQUEST_METHOD']== 'GET'){
+            $id = $_REQUEST['id'];
+            $product = $this->productModel->get($id);
+            include 'src/View/edit.php';
+        }
+        else{
             $id = $_REQUEST['id'];
             $name = $_POST['name'];
             $type = $_POST['type'];
@@ -65,11 +64,7 @@ class ProductController
             $description = $_POST['description'];
 
             $this->productModel->editProduct($name,$type,$price,$quantity,$date,$description,$id);
-            header('location:index.php?page=list');
-        } else {
-            $id = $_REQUEST['id'];
-            $products = $this->productModel->get($id);
-            include "src/View/edit.php";
+            header("location:index.php?page=list");
         }
     }
 

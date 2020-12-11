@@ -59,7 +59,7 @@ class productModel
         $statement = $this->product->prepare($sql);
         $statement->bindValue(1, $id);
         $statement->execute();
-        return $statement->fetchAll();
+        return $statement->fetch();
     }
 
     public function getSearch($search)
