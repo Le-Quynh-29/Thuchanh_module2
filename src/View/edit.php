@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea name="descripton" class="form-control"><?php echo $product['description']; ?></textarea>
+                    <textarea name="description" class="form-control"><?php echo $product['description']; ?></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Update">
